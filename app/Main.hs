@@ -1,6 +1,8 @@
 module Main where
 
-import Lib
+import System.Environment (getArgs)
+import Lib                (server)
 
-main :: IO ()
-main = someFunc
+main = do
+  [port'] <- getArgs
+  server (fromIntegral $ read port')
